@@ -2,10 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {UsersComponent} from "./component/users/users.component";
 import {UserdetailComponent} from "./component/userdetail/userdetail.component";
+import {UserResolver} from "./resolver/user.resolver";
 
 const routes: Routes = [
   { path: 'users', component: UsersComponent },
-  { path: 'user/:uuid', component: UserdetailComponent },
+  { path: 'user/:uuid', component: UserdetailComponent, resolve: { resolvedResponse: UserResolver } },
   { path: '**', redirectTo: 'users' }
 ];
 
